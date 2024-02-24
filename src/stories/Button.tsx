@@ -1,4 +1,3 @@
-import React from 'react';
 import './button.css';
 
 type ButtonProps = {
@@ -9,6 +8,7 @@ type ButtonProps = {
   onClick?: () => void;
 };
 
+// TODO: temporary, will delete the file and parent 'stories' folder
 export const Button = ({
   primary = false,
   size = 'medium',

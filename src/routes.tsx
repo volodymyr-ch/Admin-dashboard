@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { Analytics, Dashboard, Users, NotFound } from 'pages';
 import { Layout } from 'layout';
+import { Analytics, Dashboard, NotFound, Users } from 'pages';
+import { FC } from 'react';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 export const Router: FC = () => (
   <BrowserRouter>

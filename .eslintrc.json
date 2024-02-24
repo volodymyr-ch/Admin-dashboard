@@ -23,7 +23,7 @@
   "settings": {
     "import/resolver": {
       "node": {
-        "paths": ["src", "@fontsource"],
+        "paths": ["src"],
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
     }
@@ -51,14 +51,11 @@
     "react/jsx-wrap-multilines": "off",
     "object-curly-newline": "off",
     "react/require-default-props": "off",
+    "react/react-in-jsx-scope": "off",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "error",
     "comma-dangle": ["error", "only-multiline"],
     "@typescript-eslint/no-use-before-define": ["error"],
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": true
-      }
-    ],
     "react/function-component-definition": [
       2,
       {
