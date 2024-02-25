@@ -1,10 +1,13 @@
 import {
   Close as CloseIcon,
   ImportExport as ImportExportIcon,
+  KeyboardArrowDown as KeyboardArrowDownIcon,
   Menu as MenuIcon,
   Search as SearchIcon,
+  Settings as SettingIcon,
 } from '@mui/icons-material';
 import {
+  Avatar,
   Box,
   CSSObject,
   IconButton,
@@ -56,6 +59,18 @@ const ToolbarMui = styled(Toolbar)(() => ({
   maxHeight: '60px',
 }));
 
+const NotificationsLabel = styled('span')(({ theme }) => ({
+  fontSize: '14px',
+  borderRadius: '50%',
+  color: theme.colors.white,
+  backgroundColor: theme.colors.red,
+  display: 'inline-block',
+  width: '20px',
+  height: '20px',
+  margin: '0 8px',
+  textAlign: 'center',
+}));
+
 const iconMixin = (theme: Theme): CSSObject => ({
   color: theme.colors.secondary,
   '&:hover': {
@@ -87,6 +102,14 @@ const IconButtonMui = styled(IconButton)(() => ({
   },
 }));
 
+const SettingIconMui = styled(SettingIcon)(({ theme }) => ({
+  ...iconMixin(theme),
+}));
+
+const KeyboardArrowDownIconMui = styled(KeyboardArrowDownIcon)(({ theme }) => ({
+  color: theme.colors.secondary,
+}));
+
 export const Header: FC<Props> = ({ open, handleDrawerStateChange }) => {
   const theme = useTheme();
 
@@ -101,7 +124,7 @@ export const Header: FC<Props> = ({ open, handleDrawerStateChange }) => {
         boxShadow: theme.colors.boxShadow,
       }}
     >
-      <ToolbarMui style={{ minHeight: '60px', padding: '0 40px' }}>
+      <ToolbarMui style={{ minHeight: '60px', padding: '0 0 0 40px' }}>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <Box>
             <IconButtonMui
@@ -128,6 +151,12 @@ export const Header: FC<Props> = ({ open, handleDrawerStateChange }) => {
                 margin: 0,
                 maxHeight: 60,
                 '& fieldset': { border: 'none' },
+                input: {
+                  '&::placeholder': {
+                    color: theme.colors.mainText,
+                    opacity: 1,
+                  },
+                },
               }}
               margin="normal"
               required
@@ -136,6 +165,7 @@ export const Header: FC<Props> = ({ open, handleDrawerStateChange }) => {
               name="search"
               placeholder="Search Dashboard"
               InputProps={{
+                style: { fontSize: 14 },
                 startAdornment: (
                   <InputAdornment position="start">
                     <SearchIconMui />
@@ -145,8 +175,18 @@ export const Header: FC<Props> = ({ open, handleDrawerStateChange }) => {
             />
           </Box>
         </Box>
-        <Box>
-          <Typography color="black">test data</Typography>
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
+            <Avatar alt="Admin" src="/assets/avatar.webp" sx={{ mr: 2 }} />
+            <Typography color={theme.colors.mainText} fontSize={12}>
+              Admin{' '}
+              <NotificationsLabel style={{ color: theme.colors.white }}>13</NotificationsLabel>
+            </Typography>
+            <KeyboardArrowDownIconMui />
+          </Box>
+          <IconButtonMui>
+            <SettingIconMui />
+          </IconButtonMui>
         </Box>
       </ToolbarMui>
     </AppBar>

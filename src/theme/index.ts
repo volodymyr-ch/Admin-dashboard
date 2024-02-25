@@ -1,7 +1,6 @@
 import { createTheme } from '@mui/material/styles';
 
 import colors from './colors';
-import fonts from './fonts';
 
 declare module '@mui/material/styles' {
   interface Theme {
@@ -11,13 +10,12 @@ declare module '@mui/material/styles' {
       secondary: string;
       drawerBackground: string;
       mainText: string;
+      secondaryText: string;
       bodyBackground: string;
       boxShadow: string;
       navbarItemBackground: string;
+      red: string;
     };
-    fonts: {
-      main: string;
-    }
   }
   // allow configuration using `createTheme`
   interface ThemeOptions {
@@ -27,19 +25,24 @@ declare module '@mui/material/styles' {
       secondary: string;
       drawerBackground: string;
       mainText: string;
+      secondaryText: string;
       bodyBackground: string;
       boxShadow: string;
       navbarItemBackground: string;
+      red: string;
     };
-    fonts: {
-      main: string;
-    }
   }
 }
 
 const theme = createTheme({
+  typography: {
+    fontFamily: 'Poppins, sans-serif',
+    fontSize: 14,
+    fontWeightLight: 300,
+    fontWeightRegular: 400,
+    fontWeightMedium: 500
+  },
   colors,
-  fonts,
 });
 
 export default theme;

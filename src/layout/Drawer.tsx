@@ -100,7 +100,7 @@ export const Drawer: FC<Props> = ({ open, collapsed, handleDrawerStateChange }) 
     >
       <Box sx={{ background: theme.colors.drawerBackground, height: '100vh', border: 0 }}>
         <DrawerHeader sx={{ mb: 3, justifyContent: 'center' }}>
-          <Typography fontFamily={theme.fonts.main}>SING APP</Typography>
+          <Typography>SING APP</Typography>
         </DrawerHeader>
         <List>
           {navigationItems.map(({ path, label, icon: Icon }) => (

@@ -11,7 +11,6 @@ const App = () => (
           margin: 0,
           padding: 0,
           color: theme.colors.mainText,
-          fontFamily: theme.fonts.main,
           background: theme.colors.bodyBackground,
         },
       }}
