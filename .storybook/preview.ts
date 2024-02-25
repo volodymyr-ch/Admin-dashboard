@@ -1,4 +1,5 @@
 import type { Preview } from "@storybook/react";
+import { withMuiTheme } from '../src/utils/storybook';
 
 const preview: Preview = {
   parameters: {
@@ -10,6 +11,7 @@ const preview: Preview = {
       },
     },
   },
+  decorators: [withMuiTheme]
 };
 
 export default preview;

@@ -1,13 +1,10 @@
 import { ThemeProvider } from '@mui/material/styles';
-import { Router } from 'routes';
 import theme from 'theme';
 import { GlobalStyles } from 'theme/globalStyles';
 
-const App = () => (
+export const withMuiTheme = (Story) => (
   <ThemeProvider theme={theme}>
     <GlobalStyles />
-    <Router />
+    <Story />
   </ThemeProvider>
 );
-
-export default App;

@@ -5,6 +5,8 @@ import { FC } from 'react';
 export const Analytics: FC = () => (
   <Box>
     <Breadcrumbs />
-    <Typography variant="h4">Analytics</Typography>
+    <Typography variant="h4" sx={{ mb: '20px' }}>
+      Analytics
+    </Typography>
   </Box>
 );
