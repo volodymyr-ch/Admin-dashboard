@@ -1,6 +1,8 @@
 export enum RoutePath {
   home = '/',
-  analytics = '/analytics',
+  app = '/app',
+  main = '/app/main',
+  analytics = '/app/main/analytics',
   dashboard = '/dashboard',
   users = '/users',
   notFound = '*',

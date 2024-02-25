@@ -6,6 +6,8 @@ import { RoutePath } from './types';
 
 const routes = [
   { path: RoutePath.home, element: <Navigate to={RoutePath.analytics} /> },
+  { path: RoutePath.app, element: <Navigate to={RoutePath.analytics} /> },
+  { path: RoutePath.main, element: <Navigate to={RoutePath.analytics} /> },
   {
     path: RoutePath.analytics,
     element: (
