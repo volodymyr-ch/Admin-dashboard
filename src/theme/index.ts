@@ -7,6 +7,13 @@ declare module '@mui/material/styles' {
   interface Theme {
     colors: {
       white: string;
+      primary: string;
+      secondary: string;
+      drawerBackground: string;
+      mainText: string;
+      bodyBackground: string;
+      boxShadow: string;
+      navbarItemBackground: string;
     };
     fonts: {
       main: string;
@@ -16,6 +23,13 @@ declare module '@mui/material/styles' {
   interface ThemeOptions {
     colors: {
       white: string;
+      primary: string;
+      secondary: string;
+      drawerBackground: string;
+      mainText: string;
+      bodyBackground: string;
+      boxShadow: string;
+      navbarItemBackground: string;
     };
     fonts: {
       main: string;

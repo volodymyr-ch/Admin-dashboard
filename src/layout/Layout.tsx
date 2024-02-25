@@ -27,7 +27,7 @@ export const Layout: FC<PropsWithChildren> = ({ children }) => {
     <Box sx={{ display: 'flex' }}>
       <Header open={open} handleDrawerStateChange={handleDrawerStateChange} />
       <Drawer open={open} collapsed={collapsed} handleDrawerStateChange={setOpen} />
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box component="main" sx={{ flexGrow: 1, p: '40px 40px 60px' }}>
         <DrawerHeader />
         <Typography paragraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
