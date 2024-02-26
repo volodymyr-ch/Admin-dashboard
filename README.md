@@ -14,6 +14,11 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
+### `npx json-server db.json --port 8000`
+
+Will run the db.json for development to get data (simulating of getting data fro the db)\
+Open [http://localhost:8000](http://localhost:8000) to view it in the browser.
+
 ### `yarn storybook`
 
 Will run the storybook for development.\
