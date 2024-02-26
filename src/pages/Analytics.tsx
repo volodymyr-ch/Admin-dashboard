@@ -22,7 +22,8 @@ export const Analytics: FC = () => (
         <StatisticWidgetsContainer />
         <SupportRequestsWidgetContainer />
       </Box>
-      <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px' }}>
+      <Box>
+        {/* <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px' }}> */}
         <TasksVsNotificationContainer />
       </Box>
     </Box>

@@ -55,3 +55,11 @@ export type SupportRequestsResponse = {
   city: string;
   status: string;
 };
+
+export type Task = {
+  id: number;
+  title: string;
+  type: string;
+  time: string
+  completed: boolean;
+};
