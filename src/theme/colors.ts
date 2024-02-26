@@ -13,4 +13,5 @@ export default {
   green: '#68ca66',
   purple: '#9083f7',
   paperBackground: '#f9fbfd',
+  progressBarBackground: '#e9ecef',
 };

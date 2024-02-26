@@ -1,0 +1,1 @@
+export { SinglePerformanceWidget } from './SinglePerformanceWidget';

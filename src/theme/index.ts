@@ -19,6 +19,7 @@ declare module '@mui/material/styles' {
       green: string;
       purple: string;
       paperBackground: string;
+      progressBarBackground: string;
     };
   }
   // allow configuration using `createTheme`
@@ -38,6 +39,7 @@ declare module '@mui/material/styles' {
       green: string;
       purple: string;
       paperBackground: string;
+      progressBarBackground: string;
     };
   }
 }

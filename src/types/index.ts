@@ -11,6 +11,17 @@ export type Visits = {
   rate: number;
 };
 
+export type Performance = {
+  sdk: {
+    thisPeriod: number;
+    lastPeriod: number;
+  };
+  integration: {
+    thisPeriod: number;
+    lastPeriod: number;
+  };
+}
+
 export type Revenue = {
   name: string;
   y: number;
@@ -19,4 +30,5 @@ export type Revenue = {
 export type SingleWidgetsResponse = {
   visits: Visits;
   revenue: Revenue;
+  performance: Performance;
 };
