@@ -40,7 +40,7 @@ export const SupportRequestsWidget: FC<Props> = ({ title, data, onClose }) => {
 
   return (
     <SingleWidget title={title} padding={0} onClose={onClose}>
-      <Box sx={{ overflowX: 'scroll' }}>
+      <Box sx={{ overflowX: 'scroll', borderRadius: '10px' }}>
         <Table sx={{ minWidth: 700 }}>
           <TableHead>
             <TableRow>
@@ -53,7 +53,7 @@ export const SupportRequestsWidget: FC<Props> = ({ title, data, onClose }) => {
           </TableHead>
           <TableBody>
             {data.map((row) => (
-              <StyledTableRow key={row.name}>
+              <StyledTableRow key={row.email}>
                 <StyledTableCell component="th" scope="row">
                   {row.name}
                 </StyledTableCell>

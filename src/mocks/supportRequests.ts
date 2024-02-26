@@ -3,7 +3,7 @@ import { SupportRequestsResponse } from 'types';
 export const response: SupportRequestsResponse[] = [
   {
     name: 'Patrick Otto',
-    email: 'patric@test.com',
+    email: 'patric@test1.com',
     product: 'Product 1',
     price: 100,
     date: '11 May 2017',
@@ -12,7 +12,7 @@ export const response: SupportRequestsResponse[] = [
   },
   {
     name: 'Patrick Otto',
-    email: 'patric@test.com',
+    email: 'patric@test2.com',
     product: 'Product 1',
     price: 100,
     date: '11 May 2017',
@@ -21,7 +21,7 @@ export const response: SupportRequestsResponse[] = [
   },
   {
     name: 'Patrick Otto',
-    email: 'patric@test.com',
+    email: 'patric@test3.com',
     product: 'Product 1',
     price: 100,
     date: '11 May 2017',
@@ -30,7 +30,7 @@ export const response: SupportRequestsResponse[] = [
   },
   {
     name: 'Patrick Otto',
-    email: 'patric@test.com',
+    email: 'patric@test4.com',
     product: 'Product 1',
     price: 100,
     date: '11 May 2017',
@@ -39,7 +39,7 @@ export const response: SupportRequestsResponse[] = [
   },
   {
     name: 'Patrick Otto',
-    email: 'patric@test.com',
+    email: 'patric@test5.com',
     product: 'Product 1',
     price: 100,
     date: '11 May 2017',

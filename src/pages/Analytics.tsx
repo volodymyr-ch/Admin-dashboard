@@ -5,6 +5,7 @@ import {
   SingleWidgetsContainer,
   StatisticWidgetsContainer,
   SupportRequestsWidgetContainer,
+  TasksVsNotificationContainer,
 } from 'containers';
 import { FC } from 'react';
 
@@ -15,10 +16,15 @@ export const Analytics: FC = () => (
       Analytics
     </Typography>
     <Box sx={{ display: 'grid', gap: '40px' }}>
-      <SingleWidgetsContainer />
-      <DailyLineChartWidgetContainer />
-      <StatisticWidgetsContainer />
-      <SupportRequestsWidgetContainer />
+      <Box sx={{ display: 'grid', gap: '40px' }}>
+        <SingleWidgetsContainer />
+        <DailyLineChartWidgetContainer />
+        <StatisticWidgetsContainer />
+        <SupportRequestsWidgetContainer />
+      </Box>
+      <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px' }}>
+        <TasksVsNotificationContainer />
+      </Box>
     </Box>
   </Box>
 );
