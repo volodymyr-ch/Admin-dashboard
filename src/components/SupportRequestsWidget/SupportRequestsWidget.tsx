@@ -1,4 +1,4 @@
-import { Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
+import { Box, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
 import { tableCellClasses } from '@mui/material/TableCell';
 import { styled } from '@mui/material/styles';
 import { SingleWidget } from 'components/SingleWidget';
@@ -40,32 +40,34 @@ export const SupportRequestsWidget: FC<Props> = ({ title, data, onClose }) => {
 
   return (
     <SingleWidget title={title} padding={0} onClose={onClose}>
-      <Table sx={{ minWidth: 700 }}>
-        <TableHead>
-          <TableRow>
-            {headers.map((header) => (
-              <StyledTableCell key={header} align="left" style={{ textTransform: 'uppercase' }}>
-                {header}
-              </StyledTableCell>
+      <Box sx={{ overflowX: 'scroll' }}>
+        <Table sx={{ minWidth: 700 }}>
+          <TableHead>
+            <TableRow>
+              {headers.map((header) => (
+                <StyledTableCell key={header} align="left" style={{ textTransform: 'uppercase' }}>
+                  {header}
+                </StyledTableCell>
+              ))}
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {data.map((row) => (
+              <StyledTableRow key={row.name}>
+                <StyledTableCell component="th" scope="row">
+                  {row.name}
+                </StyledTableCell>
+                <StyledTableCell align="left">{row.email}</StyledTableCell>
+                <StyledTableCell align="left">{row.product}</StyledTableCell>
+                <StyledTableCell align="left">$ {row.price}</StyledTableCell>
+                <StyledTableCell align="left">{row.date}</StyledTableCell>
+                <StyledTableCell align="left">{row.city}</StyledTableCell>
+                <StyledTableCell align="left">{row.status}</StyledTableCell>
+              </StyledTableRow>
             ))}
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {data.map((row) => (
-            <StyledTableRow key={row.name}>
-              <StyledTableCell component="th" scope="row">
-                {row.name}
-              </StyledTableCell>
-              <StyledTableCell align="left">{row.email}</StyledTableCell>
-              <StyledTableCell align="left">{row.product}</StyledTableCell>
-              <StyledTableCell align="left">$ {row.price}</StyledTableCell>
-              <StyledTableCell align="left">{row.date}</StyledTableCell>
-              <StyledTableCell align="left">{row.city}</StyledTableCell>
-              <StyledTableCell align="left">{row.status}</StyledTableCell>
-            </StyledTableRow>
-          ))}
-        </TableBody>
-      </Table>
+          </TableBody>
+        </Table>
+      </Box>
     </SingleWidget>
   );
 };
