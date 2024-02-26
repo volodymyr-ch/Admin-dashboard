@@ -6,6 +6,7 @@ import { SingleVisitsWidget } from 'components/SingleVisitsWidget';
 import { useState } from 'react';
 import { SingleWidgetsResponse } from 'types';
 
+// request will goes here in containers
 const response: SingleWidgetsResponse = {
   visits: {
     total: 4.332,

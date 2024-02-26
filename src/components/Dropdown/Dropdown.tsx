@@ -31,7 +31,7 @@ export const Dropdown: FC<DropDownProps> = ({
   };
 
   return (
-    <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+    <FormControl sx={{ m: 1, minWidth: 120 }} size="small" aria-label="dropdown">
       <InputLabel id="demo-select-small-label">Period</InputLabel>
       <Select
         labelId="demo-select-small-label"
