@@ -11,11 +11,11 @@ const response: SingleWidgetsResponse = {
     signOut: 0.5,
     rate: 4.5,
   },
-  revenue: {
-    total: 4.332,
-    averageCheck: 830,
-    purchases: 0.5,
-  },
+  revenue: [
+    { name: 'SMX', y: 67 },
+    { name: 'Direct', y: 62 },
+    { name: 'Networks', y: 77 },
+  ],
 };
 
 export const SingleWidgetsContainer = () => {

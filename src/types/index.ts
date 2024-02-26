@@ -12,10 +12,9 @@ export type Visits = {
 };
 
 export type Revenue = {
-  total: number;
-  averageCheck: number;
-  purchases: number;
-}
+  name: string;
+  y: number;
+}[]
 
 export type SingleWidgetsResponse = {
   visits: Visits;

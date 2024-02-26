@@ -16,17 +16,19 @@ type Props = {
 };
 
 export const SingleWidget: FC<Props> = ({ title, children, onClose }) => (
-  <Paper>
+  <Paper styles={{ position: 'relative' }}>
     <Box
       sx={{
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        flexWrap: 'wrap',
       }}
     >
       <Typography variant="h6">{title}</Typography>
-      <IconButton onClick={() => onClose()}>
+      <IconButton
+        sx={{ position: 'absolute', right: '10px', top: '14px' }}
+        onClick={() => onClose()}
+      >
         <CloseIconMui />
       </IconButton>
     </Box>
