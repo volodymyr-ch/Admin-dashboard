@@ -103,7 +103,7 @@ export const TasksWidget: FC<Props> = ({ title, data, onCompletedChange }) => {
         <NotificationsLabel
           style={{ position: 'absolute', right: '10px', top: '14px', color: theme.colors.white }}
         >
-          4
+          {data.length}
         </NotificationsLabel>
       </Box>
 

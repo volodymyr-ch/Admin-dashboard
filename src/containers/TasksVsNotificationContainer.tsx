@@ -1,6 +1,8 @@
 import { Box } from '@mui/material';
 import { DatePickerWidget } from 'components/DatePickerWidget';
+import { NotificationsWidget } from 'components/NotificationsWidget';
 import { TasksWidget } from 'components/TasksWidget';
+import { response as notifications } from 'mocks/notifications';
 import { response } from 'mocks/tasks';
 import { useState } from 'react';
 import { Task } from 'types';
@@ -16,6 +18,7 @@ export const TasksVsNotificationContainer = () => {
     <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px' }}>
       <DatePickerWidget />
       <TasksWidget title={"Today's Tasks"} data={data} onCompletedChange={handleCompleteChange} />
+      <NotificationsWidget title="Notifications" data={notifications} />
     </Box>
   );
 };
