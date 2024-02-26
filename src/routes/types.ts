@@ -5,5 +5,7 @@ export enum RoutePath {
   analytics = '/app/main/analytics',
   dashboard = '/dashboard',
   users = '/users',
+  email = '/app/inbox',
+  grid = '/app/grid',
   notFound = '*',
 }

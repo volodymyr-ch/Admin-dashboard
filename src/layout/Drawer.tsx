@@ -1,6 +1,12 @@
 import { FC } from 'react';
 
-import { Home as HomeIcon, MoveToInbox as InboxIcon, Mail as MailIcon } from '@mui/icons-material';
+import {
+  Dashboard as DashboardIcon,
+  Group as GroupIcon,
+  Home as HomeIcon,
+  MoveToInbox as InboxIcon,
+  Mail as MailIcon,
+} from '@mui/icons-material';
 import {
   Box,
   List,
@@ -12,13 +18,19 @@ import {
   Typography,
 } from '@mui/material';
 import { CSSObject, Theme, styled, useTheme } from '@mui/material/styles';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { RoutePath } from 'routes/types';
 import { drawerWidth } from 'utils/constants';
 
 const navigationItems = [
-  { path: RoutePath.dashboard, label: 'Dashboard', icon: HomeIcon },
   { path: RoutePath.analytics, label: 'Analytics', icon: HomeIcon },
-  { path: RoutePath.users, label: 'Users', icon: HomeIcon },
+  { path: RoutePath.dashboard, label: 'Dashboard', icon: DashboardIcon },
+  { path: RoutePath.users, label: 'Users', icon: GroupIcon },
+];
+
+const secondaryNavigationItems = [
+  { path: RoutePath.email, label: 'Emails', icon: MailIcon },
+  { path: RoutePath.grid, label: 'Grid', icon: InboxIcon },
 ];
 
 type Props = {
@@ -82,6 +94,8 @@ const ListItemButtonStyled = styled(ListItemButton)(({ theme }) => ({
 
 export const Drawer: FC<Props> = ({ open, collapsed, handleDrawerStateChange }) => {
   const theme = useTheme();
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   return (
     <TheDrawer
@@ -104,25 +118,61 @@ export const Drawer: FC<Props> = ({ open, collapsed, handleDrawerStateChange }) 
         </DrawerHeader>
         <List>
           {navigationItems.map(({ path, label, icon: Icon }) => (
-            <ListItem key={path} disablePadding sx={{ display: 'block' }}>
-              <ListItemButtonStyled sx={{ minHeight: 48, justifyContent: 'initial', px: 1.5 }}>
+            <ListItem
+              key={path}
+              disablePadding
+              sx={{ display: 'block' }}
+              onClick={() => navigate(path)}
+            >
+              <ListItemButtonStyled
+                sx={{
+                  minHeight: 48,
+                  justifyContent: 'initial',
+                  px: 1.5,
+                  background: pathname === path ? theme.colors.navbarItemBackground : 'inherit',
+                }}
+              >
                 <ListItemIcon sx={{ minWidth: 0, mr: 'auto', justifyContent: 'center' }}>
-                  <Icon />
+                  <Icon
+                    sx={{
+                      background: pathname === path ? theme.colors.primary : 'inherit',
+                      color: pathname === path ? theme.colors.white : 'inherit',
+                      borderRadius: '50%',
+                    }}
+                  />
                 </ListItemIcon>
                 <ListItemText primary={label} sx={{ ml: 1.5, overflow: 'hidden' }} />
               </ListItemButtonStyled>
             </ListItem>
           ))}
         </List>
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-              <ListItemButton sx={{ minHeight: 48, justifyContent: 'initial', px: 1.5 }}>
+        <List sx={{ mt: 8 }}>
+          {secondaryNavigationItems.map(({ path, label, icon: Icon }) => (
+            <ListItem
+              key={path}
+              disablePadding
+              sx={{ display: 'block' }}
+              onClick={() => navigate(path)}
+            >
+              <ListItemButtonStyled
+                sx={{
+                  minHeight: 48,
+                  justifyContent: 'initial',
+                  px: 1.5,
+                  background: pathname === path ? theme.colors.navbarItemBackground : 'inherit',
+                }}
+              >
                 <ListItemIcon sx={{ minWidth: 0, mr: 'auto', justifyContent: 'center' }}>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  <Icon
+                    sx={{
+                      background: pathname === path ? theme.colors.primary : 'inherit',
+                      color: pathname === path ? theme.colors.white : 'inherit',
+                      borderRadius: '50%',
+                    }}
+                  />
                 </ListItemIcon>
-                <ListItemText primary={text} sx={{ ml: 1.5, overflow: 'hidden' }} />
-              </ListItemButton>
+                <ListItemText primary={label} sx={{ ml: 1.5, overflow: 'hidden' }} />
+              </ListItemButtonStyled>
             </ListItem>
           ))}
         </List>

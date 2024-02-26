@@ -1,5 +1,5 @@
 import { Layout } from 'layout';
-import { Analytics, Dashboard, NotFound, Users } from 'pages';
+import { Analytics, Dashboard, Email, Grid, NotFound, Users } from 'pages';
 import { FC } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { RoutePath } from './types';
@@ -29,6 +29,22 @@ const routes = [
     element: (
       <Layout>
         <Users />
+      </Layout>
+    ),
+  },
+  {
+    path: RoutePath.email,
+    element: (
+      <Layout>
+        <Email />
+      </Layout>
+    ),
+  },
+  {
+    path: RoutePath.grid,
+    element: (
+      <Layout>
+        <Grid />
       </Layout>
     ),
   },

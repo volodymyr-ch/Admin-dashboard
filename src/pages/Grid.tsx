@@ -2,11 +2,11 @@ import { Box, Typography } from '@mui/material';
 import { Breadcrumbs } from 'components/Breadcrumbs';
 import { FC } from 'react';
 
-export const Users: FC = () => (
+export const Grid: FC = () => (
   <Box>
     <Breadcrumbs />
     <Typography variant="h4" sx={{ mb: '20px' }}>
-      Users
+      Grid
     </Typography>
   </Box>
 );
