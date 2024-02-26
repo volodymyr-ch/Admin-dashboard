@@ -13,8 +13,12 @@ declare module '@mui/material/styles' {
       secondaryText: string;
       bodyBackground: string;
       boxShadow: string;
+      widgetShadow: string;
       navbarItemBackground: string;
       red: string;
+      green: string;
+      purple: string;
+      paperBackground: string;
     };
   }
   // allow configuration using `createTheme`
@@ -28,8 +32,12 @@ declare module '@mui/material/styles' {
       secondaryText: string;
       bodyBackground: string;
       boxShadow: string;
+      widgetShadow: string;
       navbarItemBackground: string;
       red: string;
+      green: string;
+      purple: string;
+      paperBackground: string;
     };
   }
 }

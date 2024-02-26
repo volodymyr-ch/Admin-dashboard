@@ -7,6 +7,10 @@ export default {
   secondaryText: '#798892',
   bodyBackground: '#f9fbfd',
   boxShadow: '0 15px 20px -20px rgba(115,162,208,0.1),0 0 15px rgba(115,162,208,0.06)',
+  widgetShadow: '0 23px 20px -20px rgba(115,162,208,0.1),0 0 15px rgba(115,162,208,0.06)',
   navbarItemBackground: '#e2e7ec',
   red: '#ff5574',
+  green: '#68ca66',
+  purple: '#9083f7',
+  paperBackground: '#f9fbfd',
 };

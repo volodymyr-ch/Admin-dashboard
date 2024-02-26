@@ -1,7 +1,12 @@
 import { Box, useTheme } from '@mui/material';
-import { FC, PropsWithChildren } from 'react';
+import { FC, ReactNode } from 'react';
 
-export const Paper: FC<PropsWithChildren> = ({ children }) => {
+type Props = {
+  styles?: Record<string, string | number>;
+  children: ReactNode;
+};
+
+export const Paper: FC<Props> = ({ styles, children }) => {
   const theme = useTheme();
 
   return (
@@ -9,8 +14,11 @@ export const Paper: FC<PropsWithChildren> = ({ children }) => {
       sx={{
         minWidth: '100px',
         minHeight: '100px',
-        background: theme.colors.bodyBackground,
-        boxShadow: theme.colors.boxShadow,
+        background: theme.colors.white,
+        boxShadow: theme.colors.widgetShadow,
+        borderRadius: '10px',
+        padding: '15px 20px',
+        ...styles,
       }}
     >
       {children}
