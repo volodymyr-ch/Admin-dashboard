@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { SingleWidget } from './SingleWidget';
+import { SingleVisitsWidget } from './SingleVisitsWidget';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: 'Example/SingleWidget',
-  component: SingleWidget,
+  title: 'Example/SingleVisitsWidget',
+  component: SingleVisitsWidget,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: 'centered',
@@ -14,7 +14,7 @@ const meta = {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {},
-} satisfies Meta<typeof SingleWidget>;
+} satisfies Meta<typeof SingleVisitsWidget>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -23,6 +23,11 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     title: 'Registrations',
-    children: <span>Content</span>,
+    data: {
+      total: 4.332,
+      logins: 830,
+      signOut: 0.5,
+      rate: 4.5,
+    },
   },
 };

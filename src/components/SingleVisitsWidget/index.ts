@@ -1,0 +1,1 @@
+export { SingleVisitsWidget } from './SingleVisitsWidget';
