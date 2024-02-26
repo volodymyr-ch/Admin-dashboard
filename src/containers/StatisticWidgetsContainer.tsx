@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { StatisticWidget } from 'components';
+import { StatisticWidget } from 'components/StatisticWidget';
 import { useState } from 'react';
 
 export type StatisticWidgetsResponseItem = {

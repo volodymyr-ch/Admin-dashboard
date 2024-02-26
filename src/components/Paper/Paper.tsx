@@ -17,7 +17,7 @@ export const Paper: FC<Props> = ({ styles, children }) => {
         background: theme.colors.white,
         boxShadow: theme.colors.widgetShadow,
         borderRadius: '10px',
-        padding: '15px 20px',
+        padding: '15px 20px 30px',
         ...styles,
       }}
     >

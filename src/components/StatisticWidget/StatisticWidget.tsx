@@ -1,9 +1,10 @@
 import { NorthEast as NorthEastIcon, SouthEast as SouthEastIcon } from '@mui/icons-material';
 import { Box, Divider, Typography, useTheme } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { Dropdown, Paper } from 'components';
-import { StatisticWidgetsResponseItem } from 'containers'; // TODO: change to types folder
+import { Dropdown } from 'components/Dropdown';
+import { Paper } from 'components/Paper';
 import React, { FC } from 'react';
+import { StatisticWidgetsResponseItem } from 'types';
 
 const SouthEastIconMui = styled(SouthEastIcon)(({ theme }) => ({
   color: theme.colors.red,

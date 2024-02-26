@@ -1,0 +1,1 @@
+export { SingleWidget } from './SingleWidget';
