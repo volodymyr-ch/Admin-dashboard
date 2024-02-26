@@ -24,7 +24,9 @@ export const SingleWidget: FC<Props> = ({ title, children, onClose }) => (
         justifyContent: 'space-between',
       }}
     >
-      <Typography variant="h6">{title}</Typography>
+      <Typography variant="h6" sx={{ fontSize: '18px' }}>
+        {title}
+      </Typography>
       <IconButton
         sx={{ position: 'absolute', right: '10px', top: '14px' }}
         onClick={() => onClose()}

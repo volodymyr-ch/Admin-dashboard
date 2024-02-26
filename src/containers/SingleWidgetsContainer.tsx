@@ -1,6 +1,7 @@
 import { Box } from '@mui/material';
 import { SinglePerformanceWidget } from 'components/SinglePerformanceWidget';
 import { SingleRevenueWidget } from 'components/SingleRevenueWidget';
+import { SingleServerWidget } from 'components/SingleServerWidget';
 import { SingleVisitsWidget } from 'components/SingleVisitsWidget';
 import { useState } from 'react';
 import { SingleWidgetsResponse } from 'types';
@@ -27,12 +28,30 @@ const response: SingleWidgetsResponse = {
       lastPeriod: 38,
     },
   },
+  serverOverview: [
+    {
+      percentages: 60,
+      temperature: 35,
+      ghz: 2.5,
+    },
+    {
+      percentages: 40,
+      temperature: 35,
+      ghz: 2.5,
+    },
+    {
+      percentages: 20,
+      temperature: 35,
+      ghz: 2.5,
+    },
+  ],
 };
 
 export const SingleWidgetsContainer = () => {
   const [showVisits, setShowVisits] = useState(true);
   const [showRevenue, setShowRevenue] = useState(true);
   const [showPerformance, setShowPerformance] = useState(true);
+  const [showServer, setShowServer] = useState(true);
 
   const handleVisitClose = () => {
     setShowVisits(false);
@@ -44,6 +63,10 @@ export const SingleWidgetsContainer = () => {
 
   const handlePerformanceClose = () => {
     setShowPerformance(false);
+  };
+
+  const handleServerClose = () => {
+    setShowServer(false);
   };
 
   return (
@@ -67,6 +90,13 @@ export const SingleWidgetsContainer = () => {
           title="App Performance"
           data={response.performance}
           onClose={handlePerformanceClose}
+        />
+      ) : null}
+      {showServer ? (
+        <SingleServerWidget
+          title="Server Overview"
+          data={response.serverOverview}
+          onClose={handleServerClose}
         />
       ) : null}
     </Box>

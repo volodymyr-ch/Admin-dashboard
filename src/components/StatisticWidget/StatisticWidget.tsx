@@ -45,7 +45,7 @@ export const StatisticWidget: FC<Props> = ({ title, color, data, period, onPerio
       >
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <ColorIcon color={color} />
-          <Typography variant="h5" sx={{ ml: 1 }}>
+          <Typography variant="h5" fontSize="20px" sx={{ ml: 1 }}>
             {title}
           </Typography>
         </Box>

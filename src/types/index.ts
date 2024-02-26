@@ -27,8 +27,15 @@ export type Revenue = {
   y: number;
 }[]
 
+export type ServerOverView = {
+  percentages: number;
+  temperature: number;
+  ghz: number;
+}[]
+
 export type SingleWidgetsResponse = {
   visits: Visits;
   revenue: Revenue;
   performance: Performance;
+  serverOverview: ServerOverView
 };
