@@ -1,0 +1,1 @@
+export { SingleRevenueWidget } from './SingleRevenueWidget';

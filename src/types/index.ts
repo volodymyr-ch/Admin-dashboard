@@ -4,9 +4,20 @@ export type StatisticWidgetsResponseItem = {
   bonusRate: number;
 };
 
-export type SingleVisitsWidgetResponse = {
+export type Visits = {
   total: number;
   logins: number;
   signOut: number;
   rate: number;
+};
+
+export type Revenue = {
+  total: number;
+  averageCheck: number;
+  purchases: number;
+}
+
+export type SingleWidgetsResponse = {
+  visits: Visits;
+  revenue: Revenue;
 };

@@ -3,7 +3,7 @@ import { Box, Typography, useTheme } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { SingleWidget } from 'components/SingleWidget';
 import React, { FC } from 'react';
-import { SingleVisitsWidgetResponse } from 'types';
+import { Visits } from 'types';
 
 const NorthEastIconMui = styled(NorthEastIcon)(({ theme }) => ({
   color: theme.colors.green,
@@ -11,7 +11,7 @@ const NorthEastIconMui = styled(NorthEastIcon)(({ theme }) => ({
 
 type Props = {
   title: React.ReactNode;
-  data: SingleVisitsWidgetResponse;
+  data: Visits;
   onClose: () => void;
 };
 
