@@ -2,10 +2,11 @@ import { Box, Typography, useTheme } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { Paper } from 'components/Paper';
 import React, { FC } from 'react';
+import { NotificationsItem } from 'types';
 
 type Props = {
   title: React.ReactNode;
-  data: string[];
+  data: NotificationsItem[];
 };
 
 const NotificationsLabel = styled('span')(({ theme }) => ({
@@ -39,11 +40,11 @@ export const NotificationsWidget: FC<Props> = ({ title, data }) => {
       <Box sx={{ mt: 3 }}>
         {data.map((item) => (
           <Typography
-            key={item.split(' ').join('_')}
+            key={item.id}
             variant="body2"
             sx={{ fontSize: '14px', color: theme.colors.mainText, mb: 3 }}
           >
-            {item}
+            {item.title}
           </Typography>
         ))}
       </Box>

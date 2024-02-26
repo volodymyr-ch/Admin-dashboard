@@ -1,8 +1,26 @@
 export const response = [
-  'Ken accepts your invitation',
-  'Report from LT Company',
-  '4 Private Mails',
-  '3 Comments to your Post',
-  'New Version of RNS app',
-  'Notifications from Social Apps'
+  {
+    id: 0,
+    title: 'Ken accepts your invitation'
+  },
+  {
+    id: 1,
+    title: 'Report from LT Company'
+  },
+  {
+    id: 2,
+    title: '4 Private Mails'
+  },
+  {
+    id: 3,
+    title: '3 Comments to your Post'
+  },
+  {
+    id: 4,
+    title: 'New Version of RNS app'
+  },
+  {
+    id: 5,
+    title: 'Notifications from Social Apps'
+  }
 ];

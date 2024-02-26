@@ -1,54 +1,16 @@
-import { Box } from '@mui/material';
+import { Box, useTheme } from '@mui/material';
 import { SinglePerformanceWidget } from 'components/SinglePerformanceWidget';
 import { SingleRevenueWidget } from 'components/SingleRevenueWidget';
 import { SingleServerWidget } from 'components/SingleServerWidget';
 import { SingleVisitsWidget } from 'components/SingleVisitsWidget';
+import { useGetSingleWidgetsQuery } from 'entities/api/singleWidgetsApi';
 import { useState } from 'react';
-import { SingleWidgetsResponse } from 'types';
-
-// request will goes here in containers
-const response: SingleWidgetsResponse = {
-  visits: {
-    total: 4.332,
-    logins: 830,
-    signOut: 0.5,
-    rate: 4.5,
-  },
-  revenue: [
-    { name: 'SMX', y: 67 },
-    { name: 'Direct', y: 62 },
-    { name: 'Networks', y: 77 },
-  ],
-  performance: {
-    sdk: {
-      thisPeriod: 60,
-      lastPeriod: 71,
-    },
-    integration: {
-      thisPeriod: 53,
-      lastPeriod: 38,
-    },
-  },
-  serverOverview: [
-    {
-      percentages: 60,
-      temperature: 35,
-      ghz: 2.5,
-    },
-    {
-      percentages: 40,
-      temperature: 35,
-      ghz: 2.5,
-    },
-    {
-      percentages: 20,
-      temperature: 35,
-      ghz: 2.5,
-    },
-  ],
-};
+import { PORT } from 'utils/constants';
 
 export const SingleWidgetsContainer = () => {
+  const theme = useTheme();
+
+  const { data: response, isError } = useGetSingleWidgetsQuery();
   const [showVisits, setShowVisits] = useState(true);
   const [showRevenue, setShowRevenue] = useState(true);
   const [showPerformance, setShowPerformance] = useState(true);
@@ -69,6 +31,19 @@ export const SingleWidgetsContainer = () => {
   const handleServerClose = () => {
     setShowServer(false);
   };
+
+  if (isError) {
+    return (
+      <div style={{ fontFamily: theme.typography.fontFamily, color: theme.colors.red }}>
+        Something went wrong please check if you ran the db with json-server - command to run `npx
+        json-server db.json --port {PORT}`
+      </div>
+    );
+  }
+
+  if (!response) {
+    return null;
+  }
 
   return (
     <Box

@@ -2,13 +2,21 @@ import { Box } from '@mui/material';
 import { DatePickerWidget } from 'components/DatePickerWidget';
 import { NotificationsWidget } from 'components/NotificationsWidget';
 import { TasksWidget } from 'components/TasksWidget';
-import { response as notifications } from 'mocks/notifications';
-import { response } from 'mocks/tasks';
-import { useState } from 'react';
+import { useGetNotificationsQuery } from 'entities/api/notificationsApi';
+import { useGetTasksQuery } from 'entities/api/tasksApi';
+import { useEffect, useState } from 'react';
 import { Task } from 'types';
 
 export const TasksVsNotificationContainer = () => {
-  const [data, setData] = useState<Task[]>(response);
+  const { data: tasks } = useGetTasksQuery();
+  const { data: notifications } = useGetNotificationsQuery();
+  const [data, setData] = useState<Task[]>([]);
+
+  useEffect(() => {
+    if (tasks) {
+      setData(tasks);
+    }
+  }, [tasks]);
 
   const handleCompleteChange = (id: number, value: boolean) => {
     setData((prev) => prev.map((task) => (task.id === id ? { ...task, completed: value } : task)));
@@ -27,8 +35,10 @@ export const TasksVsNotificationContainer = () => {
       }}
     >
       <DatePickerWidget />
-      <TasksWidget title={"Today's Tasks"} data={data} onCompletedChange={handleCompleteChange} />
-      <NotificationsWidget title="Notifications" data={notifications} />
+      {data.length ? (
+        <TasksWidget title={"Today's Tasks"} data={data} onCompletedChange={handleCompleteChange} />
+      ) : null}
+      {notifications ? <NotificationsWidget title="Notifications" data={notifications} /> : null}
     </Box>
   );
 };

@@ -63,3 +63,14 @@ export type Task = {
   time: string
   completed: boolean;
 };
+
+export type StatisticWidgetsResponse = Record<'lightBlue' | 'singUp' | 'RNS', {
+  total: number;
+  registrations: number;
+  bonusRate: number;
+}>
+
+export type NotificationsItem = {
+  id: number;
+  title: string;
+};

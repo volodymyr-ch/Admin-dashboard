@@ -1,15 +1,17 @@
 import { SupportRequestsWidget } from 'components/SupportRequestsWidget';
-import { response } from 'mocks/supportRequests';
+import { useGetSupportRequestsQuery } from 'entities/api/supportRequestsApi';
 import { useState } from 'react';
 
 export const SupportRequestsWidgetContainer = () => {
+  const { data: response } = useGetSupportRequestsQuery();
+
   const [show, setShow] = useState(true);
 
   const handleClose = () => {
     setShow(false);
   };
 
-  return show ? (
+  return show && response ? (
     <SupportRequestsWidget
       title={
         <span>

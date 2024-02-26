@@ -1,31 +1,20 @@
 import { Box } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { StatisticWidget } from 'components/StatisticWidget';
+import { useGetStatisticWidgetsQuery } from 'entities/api/statisticWidgetsApi';
 import { useState } from 'react';
 
-const response = {
-  lightBlue: {
-    total: 1000,
-    registrations: 100,
-    bonusRate: 10,
-  },
-  singUp: {
-    total: 2000,
-    registrations: 200,
-    bonusRate: 20,
-  },
-  RNS: {
-    total: 3000,
-    registrations: 300,
-    bonusRate: 30,
-  },
-};
-
 export const StatisticWidgetsContainer = () => {
+  const { data: response } = useGetStatisticWidgetsQuery();
+
   const [lightBluePeriod, setLightPeriod] = useState('month');
   const [singUpPeriod, setSingUpPeriod] = useState('month');
   const [RNSPeriod, setRNSPeriod] = useState('month');
   const theme = useTheme();
+
+  if (!response) {
+    return null;
+  }
 
   return (
     <Box
