@@ -15,7 +15,16 @@ export const Analytics: FC = () => (
     <Typography variant="h4" sx={{ mb: '20px' }}>
       Analytics
     </Typography>
-    <Box sx={{ display: 'grid', gap: '40px' }}>
+    <Box
+      sx={{
+        display: 'grid',
+        gridTemplateColumns: {
+          xs: '1fr',
+          xl: '10fr 3fr',
+        },
+        gap: '40px',
+      }}
+    >
       <Box sx={{ display: 'grid', gap: '40px' }}>
         <SingleWidgetsContainer />
         <DailyLineChartWidgetContainer />
@@ -23,7 +32,6 @@ export const Analytics: FC = () => (
         <SupportRequestsWidgetContainer />
       </Box>
       <Box>
-        {/* <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px' }}> */}
         <TasksVsNotificationContainer />
       </Box>
     </Box>

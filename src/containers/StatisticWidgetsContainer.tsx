@@ -28,7 +28,17 @@ export const StatisticWidgetsContainer = () => {
   const theme = useTheme();
 
   return (
-    <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '40px' }}>
+    <Box
+      sx={{
+        display: 'grid',
+        gridTemplateColumns: {
+          xs: '1fr',
+          md: 'repeat(2, 1fr)',
+          lg: 'repeat(3, 1fr)',
+        },
+        gap: '40px',
+      }}
+    >
       <StatisticWidget
         title="Statistic Light Blue"
         color={theme.colors.primary}

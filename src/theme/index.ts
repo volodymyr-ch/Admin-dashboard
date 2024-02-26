@@ -49,6 +49,15 @@ declare module '@mui/material/styles' {
 }
 
 const theme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 767,
+      md: 992,
+      lg: 1200,
+      xl: 1621,
+    },
+  },
   typography: {
     fontFamily: 'Poppins, sans-serif',
     fontSize: 14,

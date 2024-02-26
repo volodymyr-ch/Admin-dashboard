@@ -70,7 +70,17 @@ export const SingleWidgetsContainer = () => {
   };
 
   return (
-    <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '40px' }}>
+    <Box
+      sx={{
+        display: 'grid',
+        gridTemplateColumns: {
+          xs: '1fr',
+          sm: '1fr 1fr',
+          lg: 'repeat(4, 1fr)',
+        },
+        gap: '40px',
+      }}
+    >
       {showVisits ? (
         <SingleVisitsWidget
           title="Visits Today"

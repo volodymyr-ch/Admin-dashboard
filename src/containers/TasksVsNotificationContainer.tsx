@@ -15,7 +15,17 @@ export const TasksVsNotificationContainer = () => {
   };
 
   return (
-    <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px' }}>
+    <Box
+      sx={{
+        display: 'grid',
+        gridTemplateColumns: {
+          xs: '1fr',
+          sm: '1fr 1fr',
+          xl: '1fr',
+        },
+        gap: '40px',
+      }}
+    >
       <DatePickerWidget />
       <TasksWidget title={"Today's Tasks"} data={data} onCompletedChange={handleCompleteChange} />
       <NotificationsWidget title="Notifications" data={notifications} />

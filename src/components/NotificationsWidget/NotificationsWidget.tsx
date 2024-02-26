@@ -39,6 +39,7 @@ export const NotificationsWidget: FC<Props> = ({ title, data }) => {
       <Box sx={{ mt: 3 }}>
         {data.map((item) => (
           <Typography
+            key={item.split(' ').join('_')}
             variant="body2"
             sx={{ fontSize: '14px', color: theme.colors.mainText, mb: 3 }}
           >
