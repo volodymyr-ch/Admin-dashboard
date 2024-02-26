@@ -3,14 +3,6 @@ import { useTheme } from '@mui/material/styles';
 import { StatisticWidget } from 'components/StatisticWidget';
 import { useState } from 'react';
 
-export type StatisticWidgetsResponseItem = {
-  total: number;
-  registrations: number;
-  bonusRate: number;
-};
-
-// type StatisticWidgetsResponse = Record<string, StatisticWidgetsResponseItem>;
-
 const response = {
   lightBlue: {
     total: 1000,

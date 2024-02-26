@@ -39,3 +39,9 @@ export type SingleWidgetsResponse = {
   performance: Performance;
   serverOverview: ServerOverView
 };
+
+export type DailyLineChartWidgetResponse = {
+  name: string;
+  type: string;
+  data: [number, number][];
+}[];

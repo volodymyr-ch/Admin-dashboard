@@ -38,7 +38,8 @@ export const PieChart: FC<Props> = ({ chartData }) => {
         states: { hover: { enabled: true, halo: 0 } },
       },
     },
-    colors: [theme.colors.red, '#ebb834', theme.colors.primary],
+    tooltip: { borderWidth: 2 },
+    colors: [theme.colors.red, theme.colors.yellow, theme.colors.primary],
     series: [{ data: chartData }],
   };
 

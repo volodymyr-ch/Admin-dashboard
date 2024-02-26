@@ -1,6 +1,10 @@
 import { Box, Typography } from '@mui/material';
 import { Breadcrumbs } from 'components/Breadcrumbs';
-import { SingleWidgetsContainer, StatisticWidgetsContainer } from 'containers';
+import {
+  DailyLineChartWidgetContainer,
+  SingleWidgetsContainer,
+  StatisticWidgetsContainer,
+} from 'containers';
 import { FC } from 'react';
 
 export const Analytics: FC = () => (
@@ -11,6 +15,7 @@ export const Analytics: FC = () => (
     </Typography>
     <Box sx={{ display: 'grid', gap: '40px' }}>
       <SingleWidgetsContainer />
+      <DailyLineChartWidgetContainer />
       <StatisticWidgetsContainer />
     </Box>
   </Box>
