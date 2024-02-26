@@ -45,3 +45,13 @@ export type DailyLineChartWidgetResponse = {
   type: string;
   data: [number, number][];
 }[];
+
+export type SupportRequestsResponse = {
+  name: string;
+  email: string;
+  product: string;
+  price: number;
+  date: string;
+  city: string;
+  status: string;
+};

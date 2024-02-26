@@ -1,8 +1,8 @@
-import { DailyLineChartWidget } from 'components/DailyLineChartWidget';
-import { response } from 'mocks/dailyLineChartWidgetResponse';
+import { SupportRequestsWidget } from 'components/SupportRequestsWidget';
+import { response } from 'mocks/supportRequests';
 import { useState } from 'react';
 
-export const DailyLineChartWidgetContainer = () => {
+export const SupportRequestsWidgetContainer = () => {
   const [show, setShow] = useState(true);
 
   const handleClose = () => {
@@ -10,10 +10,10 @@ export const DailyLineChartWidgetContainer = () => {
   };
 
   return show ? (
-    <DailyLineChartWidget
+    <SupportRequestsWidget
       title={
         <span>
-          Daily <b>Line Chart</b>
+          Support <b>Requests</b>
         </span>
       }
       data={response}

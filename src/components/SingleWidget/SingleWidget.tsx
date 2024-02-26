@@ -11,12 +11,13 @@ const CloseIconMui = styled(CloseIcon)(({ theme }) => ({
 
 type Props = {
   title: React.ReactNode;
+  padding?: number;
   children: React.ReactNode;
   onClose: () => void;
 };
 
-export const SingleWidget: FC<Props> = ({ title, children, onClose }) => (
-  <Paper styles={{ position: 'relative' }}>
+export const SingleWidget: FC<Props> = ({ title, padding, children, onClose }) => (
+  <Paper styles={{ position: 'relative', ...(typeof padding === 'number' && { padding }) }}>
     <Box
       sx={{
         display: 'flex',
@@ -24,7 +25,10 @@ export const SingleWidget: FC<Props> = ({ title, children, onClose }) => (
         justifyContent: 'space-between',
       }}
     >
-      <Typography variant="h6" sx={{ fontSize: '18px' }}>
+      <Typography
+        variant="h6"
+        sx={{ fontSize: '18px', ...(typeof padding === 'number' && { padding: '15px 0 0 20px' }) }}
+      >
         {title}
       </Typography>
       <IconButton

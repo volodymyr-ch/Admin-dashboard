@@ -4,6 +4,7 @@ import {
   DailyLineChartWidgetContainer,
   SingleWidgetsContainer,
   StatisticWidgetsContainer,
+  SupportRequestsWidgetContainer,
 } from 'containers';
 import { FC } from 'react';
 
@@ -17,6 +18,7 @@ export const Analytics: FC = () => (
       <SingleWidgetsContainer />
       <DailyLineChartWidgetContainer />
       <StatisticWidgetsContainer />
+      <SupportRequestsWidgetContainer />
     </Box>
   </Box>
 );
