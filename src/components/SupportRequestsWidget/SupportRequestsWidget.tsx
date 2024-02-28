@@ -44,11 +44,13 @@ export const SupportRequestsWidget: FC<Props> = ({ title, data, onClose }) => {
         <Table sx={{ minWidth: 700 }}>
           <TableHead>
             <TableRow>
-              {headers.map((header) => (
-                <StyledTableCell key={header} align="left" style={{ textTransform: 'uppercase' }}>
-                  {header}
-                </StyledTableCell>
-              ))}
+              {headers
+                .filter((el) => el !== 'id')
+                .map((header) => (
+                  <StyledTableCell key={header} align="left" style={{ textTransform: 'uppercase' }}>
+                    {header}
+                  </StyledTableCell>
+                ))}
             </TableRow>
           </TableHead>
           <TableBody>

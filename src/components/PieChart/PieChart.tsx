@@ -45,7 +45,7 @@ export const PieChart: FC<Props> = ({ chartData }) => {
 
   return (
     <div style={{ margin: '0 -20px -30px' }}>
-      <HighchartsReact highcharts={Highcharts} options={options} />
+      <HighchartsReact highcharts={Highcharts} options={structuredClone(options)} />
     </div>
   );
 };
