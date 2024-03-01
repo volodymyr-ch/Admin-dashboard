@@ -6,11 +6,12 @@ import { SingleVisitsWidget } from 'components/SingleVisitsWidget';
 import { useGetSingleWidgetsQuery } from 'entities/api/singleWidgetsApi';
 import { useState } from 'react';
 import { PORT } from 'utils/constants';
+import { Skeleton } from './Skeleton';
 
 export const SingleWidgetsContainer = () => {
   const theme = useTheme();
 
-  const { data: response, isError } = useGetSingleWidgetsQuery();
+  const { data: response, isError, isLoading } = useGetSingleWidgetsQuery();
   const [showVisits, setShowVisits] = useState(true);
   const [showRevenue, setShowRevenue] = useState(true);
   const [showPerformance, setShowPerformance] = useState(true);
@@ -41,10 +42,6 @@ export const SingleWidgetsContainer = () => {
     );
   }
 
-  if (!response) {
-    return null;
-  }
-
   return (
     <Box
       sx={{
@@ -58,32 +55,48 @@ export const SingleWidgetsContainer = () => {
       }}
     >
       {showVisits ? (
-        <SingleVisitsWidget
-          title="Visits Today"
-          data={response.visits}
-          onClose={handleVisitClose}
-        />
+        <Skeleton show={!response?.revenue && isLoading}>
+          {response?.visits ? (
+            <SingleVisitsWidget
+              title="Visits Today"
+              data={response.visits}
+              onClose={handleVisitClose}
+            />
+          ) : null}
+        </Skeleton>
       ) : null}
       {showRevenue ? (
-        <SingleRevenueWidget
-          title="Revenue Breakdown"
-          data={response.revenue}
-          onClose={handleRevenueClose}
-        />
+        <Skeleton show={!response?.revenue && isLoading}>
+          {response?.revenue ? (
+            <SingleRevenueWidget
+              title="Revenue Breakdown"
+              data={response.revenue}
+              onClose={handleRevenueClose}
+            />
+          ) : null}
+        </Skeleton>
       ) : null}
       {showPerformance ? (
-        <SinglePerformanceWidget
-          title="App Performance"
-          data={response.performance}
-          onClose={handlePerformanceClose}
-        />
+        <Skeleton show={!response?.performance && isLoading}>
+          {response?.performance ? (
+            <SinglePerformanceWidget
+              title="App Performance"
+              data={response.performance}
+              onClose={handlePerformanceClose}
+            />
+          ) : null}
+        </Skeleton>
       ) : null}
       {showServer ? (
-        <SingleServerWidget
-          title="Server Overview"
-          data={response.serverOverview}
-          onClose={handleServerClose}
-        />
+        <Skeleton show={!response?.serverOverview && isLoading}>
+          {response?.serverOverview ? (
+            <SingleServerWidget
+              title="Server Overview"
+              data={response.serverOverview}
+              onClose={handleServerClose}
+            />
+          ) : null}
+        </Skeleton>
       ) : null}
     </Box>
   );

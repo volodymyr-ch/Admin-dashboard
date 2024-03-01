@@ -3,18 +3,15 @@ import { useTheme } from '@mui/material/styles';
 import { StatisticWidget } from 'components/StatisticWidget';
 import { useGetStatisticWidgetsQuery } from 'entities/api/statisticWidgetsApi';
 import { useState } from 'react';
+import { Skeleton } from './Skeleton';
 
 export const StatisticWidgetsContainer = () => {
-  const { data: response } = useGetStatisticWidgetsQuery();
+  const { data: response, isLoading } = useGetStatisticWidgetsQuery();
 
   const [lightBluePeriod, setLightPeriod] = useState('month');
   const [singUpPeriod, setSingUpPeriod] = useState('month');
   const [RNSPeriod, setRNSPeriod] = useState('month');
   const theme = useTheme();
-
-  if (!response) {
-    return null;
-  }
 
   return (
     <Box
@@ -28,27 +25,39 @@ export const StatisticWidgetsContainer = () => {
         gap: '40px',
       }}
     >
-      <StatisticWidget
-        title="Statistic Light Blue"
-        color={theme.colors.primary}
-        period={lightBluePeriod}
-        onPeriodChange={setLightPeriod}
-        data={response.lightBlue}
-      />
-      <StatisticWidget
-        title="Statistic SingUp"
-        color={theme.colors.red}
-        period={singUpPeriod}
-        onPeriodChange={setSingUpPeriod}
-        data={response.singUp}
-      />
-      <StatisticWidget
-        title="Statistic RNS"
-        color={theme.colors.purple}
-        period={RNSPeriod}
-        onPeriodChange={setRNSPeriod}
-        data={response.RNS}
-      />
+      <Skeleton show={!response?.lightBlue && isLoading}>
+        {response?.lightBlue ? (
+          <StatisticWidget
+            title="Statistic Light Blue"
+            color={theme.colors.primary}
+            period={lightBluePeriod}
+            onPeriodChange={setLightPeriod}
+            data={response.lightBlue}
+          />
+        ) : null}
+      </Skeleton>
+      <Skeleton show={!response?.singUp}>
+        {response?.singUp ? (
+          <StatisticWidget
+            title="Statistic SingUp"
+            color={theme.colors.red}
+            period={singUpPeriod}
+            onPeriodChange={setSingUpPeriod}
+            data={response.singUp}
+          />
+        ) : null}
+      </Skeleton>
+      <Skeleton show={!response?.RNS}>
+        {response?.RNS ? (
+          <StatisticWidget
+            title="Statistic RNS"
+            color={theme.colors.purple}
+            period={RNSPeriod}
+            onPeriodChange={setRNSPeriod}
+            data={response.RNS}
+          />
+        ) : null}
+      </Skeleton>
     </Box>
   );
 };
